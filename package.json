@@ -4,9 +4,22 @@
   "description": "Data and utilities for the Mustache Historian fundraising tracker",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./server": {
+      "require": "./server.js",
+      "types": "./server.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist",
-    "data"
+    "data",
+    "server.js",
+    "server.d.ts"
   ],
   "scripts": {
     "build": "tsc",
