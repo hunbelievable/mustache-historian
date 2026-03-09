@@ -215,7 +215,7 @@ places to look:
 
 ## Adding a new year
 
-When a new Movember season wraps up:
+When a growing season wraps up:
 
 1. **Create** `fundraising-YYYY.csv` — copy the format from last year's file,
    replace all the data, make sure ranks are sequential and dollar amounts are
