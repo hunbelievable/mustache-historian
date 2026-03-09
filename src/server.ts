@@ -9,6 +9,7 @@ export {
   loadOmahaData,
   loadOmahaYearTotals,
   loadOmahaAwards,
+  loadOmahaCompanyAwards,
   loadOmahaYears,
   getOmahaMeleeHistory,
   applyOmahaNameCorrection,

@@ -16,6 +16,7 @@ export type {
   MeleeYearEntry,
   MeleeData,
   StacheyAwardRecord,
+  CompanyAwardRecord,
   AggregatedLifetime,
   YearlyTotals,
   RookieYearEntry,
@@ -29,7 +30,7 @@ export {
   formatDollars,
 } from './parsers/fundraising';
 
-export { parseAwardsCSV } from './parsers/awards';
+export { parseAwardsCSV, parseCompanyAwardsCSV } from './parsers/awards';
 
 export {
   parseMeleeData,

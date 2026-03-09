@@ -5,5 +5,5 @@
  *
  * Do NOT import this in client-side code — it uses the Node.js `fs` module.
  */
-export { loadOmahaData, loadOmahaYearTotals, loadOmahaAwards, loadOmahaYears, getOmahaMeleeHistory, applyOmahaNameCorrection, } from './loaders/omaha';
+export { loadOmahaData, loadOmahaYearTotals, loadOmahaAwards, loadOmahaCompanyAwards, loadOmahaYears, getOmahaMeleeHistory, applyOmahaNameCorrection, } from './loaders/omaha';
 //# sourceMappingURL=server.d.ts.map

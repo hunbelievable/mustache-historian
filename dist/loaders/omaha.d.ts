@@ -9,7 +9,7 @@
  * Import path: 'mustache-historian' (re-exported from main index)
  */
 import type { FundraisingRecord } from '../types/fundraising';
-import type { StacheyAwardRecord } from '../types/awards';
+import type { StacheyAwardRecord, CompanyAwardRecord } from '../types/awards';
 import type { MeleeAppearance } from '../types/melee';
 /**
  * All Omaha fundraising records across all years.
@@ -23,6 +23,8 @@ export declare function loadOmahaData(): FundraisingRecord[];
 export declare function loadOmahaYearTotals(): Record<number, number>;
 /** All Stachey Award records for the Omaha chapter. */
 export declare function loadOmahaAwards(): StacheyAwardRecord[];
+/** All company award records for the Omaha chapter. */
+export declare function loadOmahaCompanyAwards(): CompanyAwardRecord[];
 /** Melee bracket history for a named grower. */
 export declare function getOmahaMeleeHistory(growerName: string): MeleeAppearance[];
 /**

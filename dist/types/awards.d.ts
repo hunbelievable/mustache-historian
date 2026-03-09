@@ -7,4 +7,10 @@ export interface StacheyAwardRecord {
     lastName: string | null;
     nickname?: string | null;
 }
+export interface CompanyAwardRecord {
+    chapter: ChapterSlug;
+    year: number;
+    awardName: string;
+    company: string;
+}
 //# sourceMappingURL=awards.d.ts.map

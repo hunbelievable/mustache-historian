@@ -12,7 +12,7 @@ export type {
   MeleeYearEntry,
   MeleeData,
 } from './melee';
-export type { StacheyAwardRecord } from './awards';
+export type { StacheyAwardRecord, CompanyAwardRecord } from './awards';
 export type {
   AggregatedLifetime,
   YearlyTotals,

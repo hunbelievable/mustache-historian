@@ -12,10 +12,10 @@
 import fs from 'fs';
 import path from 'path';
 import { parseFundraisingCSV, applyNameCorrection as _applyNameCorrection } from '../parsers/fundraising';
-import { parseAwardsCSV } from '../parsers/awards';
+import { parseAwardsCSV, parseCompanyAwardsCSV } from '../parsers/awards';
 import { parseMeleeData, getMeleeHistoryForGrower as _getMeleeHistoryForGrower } from '../parsers/melee';
 import type { FundraisingRecord, NameCorrections } from '../types/fundraising';
-import type { StacheyAwardRecord } from '../types/awards';
+import type { StacheyAwardRecord, CompanyAwardRecord } from '../types/awards';
 import type { MeleeData, MeleeAppearance } from '../types/melee';
 
 // __dirname = mustache-historian/dist/loaders/ when compiled
@@ -39,6 +39,7 @@ let _corrections: NameCorrections | null = null;
 let _data: FundraisingRecord[] | null = null;
 let _yearTotals: Record<number, number> | null = null;
 let _awards: StacheyAwardRecord[] | null = null;
+let _companyAwards: CompanyAwardRecord[] | null = null;
 let _melee: MeleeData | null = null;
 
 // ─── Internal helpers ──────────────────────────────────────────────────────
@@ -97,6 +98,12 @@ export function loadOmahaYearTotals(): Record<number, number> {
 export function loadOmahaAwards(): StacheyAwardRecord[] {
   if (!_awards) _awards = parseAwardsCSV(readText('stachey-awards.csv'), 'omaha');
   return _awards;
+}
+
+/** All company award records for the Omaha chapter. */
+export function loadOmahaCompanyAwards(): CompanyAwardRecord[] {
+  if (!_companyAwards) _companyAwards = parseCompanyAwardsCSV(readText('company-awards.csv'), 'omaha');
+  return _companyAwards;
 }
 
 /** Melee bracket history for a named grower. */

@@ -16,6 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadOmahaData = loadOmahaData;
 exports.loadOmahaYearTotals = loadOmahaYearTotals;
 exports.loadOmahaAwards = loadOmahaAwards;
+exports.loadOmahaCompanyAwards = loadOmahaCompanyAwards;
 exports.getOmahaMeleeHistory = getOmahaMeleeHistory;
 exports.applyOmahaNameCorrection = applyOmahaNameCorrection;
 exports.loadOmahaYears = loadOmahaYears;
@@ -41,6 +42,7 @@ let _corrections = null;
 let _data = null;
 let _yearTotals = null;
 let _awards = null;
+let _companyAwards = null;
 let _melee = null;
 // ─── Internal helpers ──────────────────────────────────────────────────────
 function getCorrections() {
@@ -88,6 +90,12 @@ function loadOmahaAwards() {
     if (!_awards)
         _awards = (0, awards_1.parseAwardsCSV)(readText('stachey-awards.csv'), 'omaha');
     return _awards;
+}
+/** All company award records for the Omaha chapter. */
+function loadOmahaCompanyAwards() {
+    if (!_companyAwards)
+        _companyAwards = (0, awards_1.parseCompanyAwardsCSV)(readText('company-awards.csv'), 'omaha');
+    return _companyAwards;
 }
 /** Melee bracket history for a named grower. */
 function getOmahaMeleeHistory(growerName) {
