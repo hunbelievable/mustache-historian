@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.omaha = exports.chapters = exports.getThresholdGrowthByYear = exports.getRookiesByYear = exports.getNiceFinishers = exports.bestSingleYearPerformances = exports.aggregateYearlyTotals = exports.aggregateLifetime = exports.getMeleeHistoryForGrower = exports.parseMeleeData = exports.parseCompanyAwardsCSV = exports.parseAwardsCSV = exports.formatDollars = exports.applyNameCorrection = exports.parseFundraisingCSV = void 0;
+exports.omaha = exports.chapters = exports.getRookiesByFiveYearClass = exports.getThresholdGrowthByYear = exports.getRookiesByYear = exports.getNiceFinishers = exports.bestSingleYearPerformances = exports.aggregateYearlyTotals = exports.aggregateLifetime = exports.getMeleeHistoryForGrower = exports.parseMeleeData = exports.parseCompanyAwardsCSV = exports.parseAwardsCSV = exports.formatDollars = exports.applyNameCorrection = exports.parseFundraisingCSV = void 0;
 // Parsers
 var fundraising_1 = require("./parsers/fundraising");
 Object.defineProperty(exports, "parseFundraisingCSV", { enumerable: true, get: function () { return fundraising_1.parseFundraisingCSV; } });
@@ -19,6 +19,7 @@ Object.defineProperty(exports, "bestSingleYearPerformances", { enumerable: true,
 Object.defineProperty(exports, "getNiceFinishers", { enumerable: true, get: function () { return aggregation_1.getNiceFinishers; } });
 Object.defineProperty(exports, "getRookiesByYear", { enumerable: true, get: function () { return aggregation_1.getRookiesByYear; } });
 Object.defineProperty(exports, "getThresholdGrowthByYear", { enumerable: true, get: function () { return aggregation_1.getThresholdGrowthByYear; } });
+Object.defineProperty(exports, "getRookiesByFiveYearClass", { enumerable: true, get: function () { return aggregation_1.getRookiesByFiveYearClass; } });
 // Chapter definitions
 var registry_1 = require("./chapters/registry");
 Object.defineProperty(exports, "chapters", { enumerable: true, get: function () { return registry_1.chapters; } });

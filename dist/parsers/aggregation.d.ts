@@ -1,5 +1,5 @@
 import type { FundraisingRecord } from '../types/fundraising';
-import type { AggregatedLifetime, YearlyTotals, RookieYearEntry, ThresholdYearEntry } from '../types/aggregation';
+import type { AggregatedLifetime, YearlyTotals, RookieYearEntry, ThresholdYearEntry, FiveYearClassEntry } from '../types/aggregation';
 export declare function aggregateLifetime(data: FundraisingRecord[]): AggregatedLifetime[];
 export declare function aggregateYearlyTotals(data: FundraisingRecord[]): YearlyTotals[];
 export declare function bestSingleYearPerformances(data: FundraisingRecord[], limit?: number): FundraisingRecord[];
@@ -9,4 +9,5 @@ export declare function getNiceFinishers(data: FundraisingRecord[]): {
 }[];
 export declare function getRookiesByYear(data: FundraisingRecord[]): RookieYearEntry[];
 export declare function getThresholdGrowthByYear(data: FundraisingRecord[]): ThresholdYearEntry[];
+export declare function getRookiesByFiveYearClass(data: FundraisingRecord[]): FiveYearClassEntry[];
 //# sourceMappingURL=aggregation.d.ts.map

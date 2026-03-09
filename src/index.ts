@@ -21,6 +21,7 @@ export type {
   YearlyTotals,
   RookieYearEntry,
   ThresholdYearEntry,
+  FiveYearClassEntry,
 } from './types';
 
 // Parsers
@@ -44,6 +45,7 @@ export {
   getNiceFinishers,
   getRookiesByYear,
   getThresholdGrowthByYear,
+  getRookiesByFiveYearClass,
 } from './parsers/aggregation';
 
 // Chapter definitions

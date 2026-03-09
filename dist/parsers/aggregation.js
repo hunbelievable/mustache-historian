@@ -6,6 +6,7 @@ exports.bestSingleYearPerformances = bestSingleYearPerformances;
 exports.getNiceFinishers = getNiceFinishers;
 exports.getRookiesByYear = getRookiesByYear;
 exports.getThresholdGrowthByYear = getThresholdGrowthByYear;
+exports.getRookiesByFiveYearClass = getRookiesByFiveYearClass;
 function aggregateLifetime(data) {
     const map = new Map();
     for (const row of data) {
@@ -74,5 +75,39 @@ function getThresholdGrowthByYear(data) {
             count10k: yearData.filter(r => r.totalDollars >= 10000).length,
         };
     });
+}
+function getRookiesByFiveYearClass(data) {
+    // Determine each grower's first year and lifetime total
+    const growerMap = new Map();
+    for (const row of data) {
+        const key = `${row.firstName} ${row.lastName}`;
+        if (!growerMap.has(key)) {
+            growerMap.set(key, { firstName: row.firstName, lastName: row.lastName, firstYear: row.year, totalDollars: 0 });
+        }
+        const entry = growerMap.get(key);
+        entry.totalDollars += row.totalDollars ?? 0;
+        entry.firstYear = Math.min(entry.firstYear, row.year);
+    }
+    // Group by rookie year — each year's cohort is a "5y class"
+    const classMap = new Map();
+    for (const grower of growerMap.values()) {
+        const year = grower.firstYear;
+        if (!classMap.has(year)) {
+            classMap.set(year, {
+                classYear: year,
+                classLabel: `Class of ${year}`,
+                members: [],
+                memberCount: 0,
+            });
+        }
+        const cls = classMap.get(year);
+        cls.members.push({
+            firstName: grower.firstName,
+            lastName: grower.lastName,
+            totalDollars: grower.totalDollars,
+        });
+        cls.memberCount = cls.members.length;
+    }
+    return Array.from(classMap.values()).sort((a, b) => a.classYear - b.classYear);
 }
 //# sourceMappingURL=aggregation.js.map

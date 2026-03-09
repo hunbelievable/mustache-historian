@@ -4,6 +4,7 @@ import type {
   YearlyTotals,
   RookieYearEntry,
   ThresholdYearEntry,
+  FiveYearClassEntry,
 } from '../types/aggregation';
 
 export function aggregateLifetime(data: FundraisingRecord[]): AggregatedLifetime[] {
@@ -82,4 +83,41 @@ export function getThresholdGrowthByYear(data: FundraisingRecord[]): ThresholdYe
       count10k: yearData.filter(r => r.totalDollars >= 10000).length,
     };
   });
+}
+
+export function getRookiesByFiveYearClass(data: FundraisingRecord[]): FiveYearClassEntry[] {
+  // Determine each grower's first year and lifetime total
+  const growerMap = new Map<string, { firstName: string; lastName: string; firstYear: number; totalDollars: number }>();
+  for (const row of data) {
+    const key = `${row.firstName} ${row.lastName}`;
+    if (!growerMap.has(key)) {
+      growerMap.set(key, { firstName: row.firstName, lastName: row.lastName, firstYear: row.year, totalDollars: 0 });
+    }
+    const entry = growerMap.get(key)!;
+    entry.totalDollars += row.totalDollars ?? 0;
+    entry.firstYear = Math.min(entry.firstYear, row.year);
+  }
+
+  // Group by rookie year — each year's cohort is a "5y class"
+  const classMap = new Map<number, FiveYearClassEntry>();
+  for (const grower of growerMap.values()) {
+    const year = grower.firstYear;
+    if (!classMap.has(year)) {
+      classMap.set(year, {
+        classYear: year,
+        classLabel: `Class of ${year}`,
+        members: [],
+        memberCount: 0,
+      });
+    }
+    const cls = classMap.get(year)!;
+    cls.members.push({
+      firstName: grower.firstName,
+      lastName: grower.lastName,
+      totalDollars: grower.totalDollars,
+    });
+    cls.memberCount = cls.members.length;
+  }
+
+  return Array.from(classMap.values()).sort((a, b) => a.classYear - b.classYear);
 }

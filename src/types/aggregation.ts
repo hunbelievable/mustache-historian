@@ -28,3 +28,14 @@ export interface ThresholdYearEntry {
   count1k: number;
   count10k: number;
 }
+
+export interface FiveYearClassEntry {
+  classYear: number;
+  classLabel: string;
+  members: Array<{
+    firstName: string;
+    lastName: string;
+    totalDollars: number;
+  }>;
+  memberCount: number;
+}

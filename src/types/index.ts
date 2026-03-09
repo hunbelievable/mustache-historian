@@ -18,4 +18,5 @@ export type {
   YearlyTotals,
   RookieYearEntry,
   ThresholdYearEntry,
+  FiveYearClassEntry,
 } from './aggregation';
