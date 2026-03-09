@@ -77,27 +77,33 @@ function getThresholdGrowthByYear(data) {
     });
 }
 function getRookiesByFiveYearClass(data) {
-    // Determine each grower's first year and lifetime total
+    const mostRecentYear = Math.max(...data.map(r => r.year));
+    // Determine each grower's first year, last year, and lifetime total
     const growerMap = new Map();
     for (const row of data) {
         const key = `${row.firstName} ${row.lastName}`;
         if (!growerMap.has(key)) {
-            growerMap.set(key, { firstName: row.firstName, lastName: row.lastName, firstYear: row.year, totalDollars: 0 });
+            growerMap.set(key, { firstName: row.firstName, lastName: row.lastName, firstYear: row.year, lastYear: row.year, totalDollars: 0 });
         }
         const entry = growerMap.get(key);
         entry.totalDollars += row.totalDollars ?? 0;
         entry.firstYear = Math.min(entry.firstYear, row.year);
+        entry.lastYear = Math.max(entry.lastYear, row.year);
     }
     // Group by rookie year — each year's cohort is a "5y class"
     const classMap = new Map();
     for (const grower of growerMap.values()) {
         const year = grower.firstYear;
+        const isActive = grower.lastYear === mostRecentYear;
         if (!classMap.has(year)) {
             classMap.set(year, {
                 classYear: year,
                 classLabel: `Class of ${year}`,
                 members: [],
                 memberCount: 0,
+                retainedCount: 0,
+                retainedPct: 0,
+                classTotalDollars: 0,
             });
         }
         const cls = classMap.get(year);
@@ -105,8 +111,15 @@ function getRookiesByFiveYearClass(data) {
             firstName: grower.firstName,
             lastName: grower.lastName,
             totalDollars: grower.totalDollars,
+            isActive,
         });
         cls.memberCount = cls.members.length;
+        cls.classTotalDollars += grower.totalDollars;
+    }
+    // Compute retention stats after all members are grouped
+    for (const cls of classMap.values()) {
+        cls.retainedCount = cls.members.filter(m => m.isActive).length;
+        cls.retainedPct = cls.memberCount > 0 ? Math.round((cls.retainedCount / cls.memberCount) * 100) : 0;
     }
     return Array.from(classMap.values()).sort((a, b) => a.classYear - b.classYear);
 }

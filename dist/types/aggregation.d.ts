@@ -32,7 +32,11 @@ export interface FiveYearClassEntry {
         firstName: string;
         lastName: string;
         totalDollars: number;
+        isActive: boolean;
     }>;
     memberCount: number;
+    retainedCount: number;
+    retainedPct: number;
+    classTotalDollars: number;
 }
 //# sourceMappingURL=aggregation.d.ts.map
