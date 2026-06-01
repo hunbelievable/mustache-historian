@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadOmahaMelee = loadOmahaMelee;
 exports.loadOmahaData = loadOmahaData;
 exports.loadOmahaYearTotals = loadOmahaYearTotals;
 exports.loadOmahaAwards = loadOmahaAwards;
@@ -51,7 +52,7 @@ function getCorrections() {
     }
     return _corrections;
 }
-function getOmahaMeleeData() {
+function loadOmahaMelee() {
     if (!_melee)
         _melee = (0, melee_1.parseMeleeData)(JSON.parse(readText('melee.json')));
     return _melee;
@@ -99,7 +100,7 @@ function loadOmahaCompanyAwards() {
 }
 /** Melee bracket history for a named grower. */
 function getOmahaMeleeHistory(growerName) {
-    return (0, melee_1.getMeleeHistoryForGrower)(getOmahaMeleeData(), growerName);
+    return (0, melee_1.getMeleeHistoryForGrower)(loadOmahaMelee(), growerName);
 }
 /**
  * Apply Omaha name corrections to a first/last name pair.

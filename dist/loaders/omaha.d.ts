@@ -10,7 +10,8 @@
  */
 import type { FundraisingRecord } from '../types/fundraising';
 import type { StacheyAwardRecord, CompanyAwardRecord } from '../types/awards';
-import type { MeleeAppearance } from '../types/melee';
+import type { MeleeData, MeleeAppearance } from '../types/melee';
+export declare function loadOmahaMelee(): MeleeData;
 /**
  * All Omaha fundraising records across all years.
  * John Doe placeholder rows (unattributed dollars) are excluded.

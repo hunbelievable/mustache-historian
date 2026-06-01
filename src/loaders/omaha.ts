@@ -51,7 +51,7 @@ function getCorrections(): NameCorrections {
   return _corrections;
 }
 
-function getOmahaMeleeData(): MeleeData {
+export function loadOmahaMelee(): MeleeData {
   if (!_melee) _melee = parseMeleeData(JSON.parse(readText('melee.json')));
   return _melee;
 }
@@ -108,7 +108,7 @@ export function loadOmahaCompanyAwards(): CompanyAwardRecord[] {
 
 /** Melee bracket history for a named grower. */
 export function getOmahaMeleeHistory(growerName: string): MeleeAppearance[] {
-  return _getMeleeHistoryForGrower(getOmahaMeleeData(), growerName);
+  return _getMeleeHistoryForGrower(loadOmahaMelee(), growerName);
 }
 
 /**

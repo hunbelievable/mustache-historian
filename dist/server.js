@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.applyOmahaNameCorrection = exports.getOmahaMeleeHistory = exports.loadOmahaYears = exports.loadOmahaCompanyAwards = exports.loadOmahaAwards = exports.loadOmahaYearTotals = exports.loadOmahaData = void 0;
+exports.applyOmahaNameCorrection = exports.getOmahaMeleeHistory = exports.loadOmahaMelee = exports.loadOmahaYears = exports.loadOmahaCompanyAwards = exports.loadOmahaAwards = exports.loadOmahaYearTotals = exports.loadOmahaData = void 0;
 /**
  * Server-side entry point for mustache-historian.
  * Import from 'mustache-historian/server' in Node.js environments only
@@ -14,6 +14,7 @@ Object.defineProperty(exports, "loadOmahaYearTotals", { enumerable: true, get: f
 Object.defineProperty(exports, "loadOmahaAwards", { enumerable: true, get: function () { return omaha_1.loadOmahaAwards; } });
 Object.defineProperty(exports, "loadOmahaCompanyAwards", { enumerable: true, get: function () { return omaha_1.loadOmahaCompanyAwards; } });
 Object.defineProperty(exports, "loadOmahaYears", { enumerable: true, get: function () { return omaha_1.loadOmahaYears; } });
+Object.defineProperty(exports, "loadOmahaMelee", { enumerable: true, get: function () { return omaha_1.loadOmahaMelee; } });
 Object.defineProperty(exports, "getOmahaMeleeHistory", { enumerable: true, get: function () { return omaha_1.getOmahaMeleeHistory; } });
 Object.defineProperty(exports, "applyOmahaNameCorrection", { enumerable: true, get: function () { return omaha_1.applyOmahaNameCorrection; } });
 //# sourceMappingURL=server.js.map

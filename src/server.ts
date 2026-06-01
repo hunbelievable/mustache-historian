@@ -11,6 +11,7 @@ export {
   loadOmahaAwards,
   loadOmahaCompanyAwards,
   loadOmahaYears,
+  loadOmahaMelee,
   getOmahaMeleeHistory,
   applyOmahaNameCorrection,
 } from './loaders/omaha';
