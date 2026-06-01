@@ -712,7 +712,7 @@
     {
       "year": 2026,
       "champion": "Sam Snider",
-      "notes": "Rookie play-in winner and 2-4 year grower play-in winner TBD (eliminated in R16). Anthony Sacher entered the R16 (UR) as a sub for Guy Rudloff via a separate play-in. R16 pairings inferred from R2 advancers.",
+      "notes": "Anthony Sacher entered the R16 (UR) as a sub for Guy Rudloff via a separate play-in. R16 pairings inferred from R2 advancers.",
       "sponsor": "High Noon",
       "bracket": {
         "left": {
@@ -746,7 +746,7 @@
               },
               {
                 "p1": "Ryan Conway",
-                "p2": "2-4 Year Play-In Winner",
+                "p2": "Timothy Culler",
                 "winner": "Ryan Conway"
               }
             ],
@@ -793,7 +793,7 @@
               },
               {
                 "p1": "Michael Shumpert",
-                "p2": "Rookie Play-In Winner",
+                "p2": "Andrew Norman",
                 "winner": "Michael Shumpert"
               }
             ],
@@ -824,7 +824,7 @@
             "Tony Vargas",
             "Zachary Shike"
           ],
-          "winner": null
+          "winner": "Andrew Norman"
         },
         "experienced": {
           "label": "2\u20134 Year Grower Play-In",
@@ -835,7 +835,7 @@
             "Phil Ruhe",
             "Timothy Culler"
           ],
-          "winner": null
+          "winner": "Timothy Culler"
         }
       }
     }
